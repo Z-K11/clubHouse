@@ -1,0 +1,7 @@
+<% if(locals.linkData) { %>
+    <% linkData.forEach(link=>{ %>
+        <a href="<%= link.href %>">
+            <span><%= link.name %></span>
+        </a>
+    <% }) %>
+<% } %> 

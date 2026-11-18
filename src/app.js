@@ -2,6 +2,9 @@ import express from 'express';
 import path from 'node:path';
 import { loadEnvFile } from 'node:process';
 
+//importing routers
+import indexRouter from './routers/indexRouter.js';
+
 // lod env
 loadEnvFile(path.join(import.meta.dirname, 'data.env'));
 
@@ -16,9 +19,7 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', (req, res) => {
-  res.send('Hello');
-});
+app.use('/', indexRouter);
 
 app.listen(process.env.port || 8080, (err) => {
   if (err) {

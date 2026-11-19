@@ -4,6 +4,6 @@ import { loadEnvFile } from 'node:process';
 
 // load env
 loadEnvFile(path.join(import.meta.dirname, '../data.env'));
-const db = new Pool({ connectionString: process.env.db_url });
+const db = new Pool({ connectionString: process.env.DB_URL });
 
 export default db;

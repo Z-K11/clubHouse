@@ -3,6 +3,7 @@ import path from 'node:path';
 import { loadEnvFile } from 'node:process';
 import session from 'express-session';
 import sessionStore from './config/storeSession.js';
+import passport from './config/passport.js';
 
 //importing routers
 import indexRouter from './routers/indexRouter.js';
@@ -35,6 +36,10 @@ app.use(
     cookie: { maxAge: 1000 * 60 * 60 * 24 },
   })
 );
+
+//Initialize passport for authentication
+app.use(passport.initialize());
+app.use(passport.session());
 
 //set up routers
 app.use('/', indexRouter);

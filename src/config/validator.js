@@ -16,7 +16,7 @@ const validateRegistration = [
     .isLength({ min: 1, max: 10 })
     .withMessage(`Last Name ${lengthError}`),
   body('email').trim().isEmail().withMessage(`Incorrect email`),
-  body('password')
+  body('pass')
     .isStrongPassword({
       minLength: 8,
       minLowercase: 1,
@@ -28,7 +28,7 @@ const validateRegistration = [
       `Password Must include 1 lowercase & uppercase characters, 1 number and 1 symbol`
     ),
   body('confirm')
-    .custom((currentPass, { req }) => currentPass === req.body.password)
+    .custom((currentPass, { req }) => currentPass === req.body.pass)
     .withMessage('Passwords do not match'),
 ];
 

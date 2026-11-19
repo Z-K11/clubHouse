@@ -2,18 +2,19 @@ import { body } from 'express-validator';
 const alphaError = 'can only contain letters';
 const lengthError = 'cannot be shorter than 3 characters';
 
+//validation rules for user data
 const validateRegistration = [
   body('fName')
     .trim()
     .isAlpha()
     .withMessage(`First Name ${alphaError}`)
-    .isLength({ min: 1, max: 10 })
+    .isLength({ min: 3, max: 10 })
     .withMessage(`First Name ${lengthError}`),
   body('lName')
     .trim()
     .isAlpha()
     .withMessage(`Last Name ${alphaError}`)
-    .isLength({ min: 1, max: 10 })
+    .isLength({ min: 3, max: 10 })
     .withMessage(`Last Name ${lengthError}`),
   body('email').trim().isEmail().withMessage(`Incorrect email`),
   body('pass')

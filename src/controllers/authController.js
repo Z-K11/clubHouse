@@ -11,20 +11,28 @@ const getRegistration = (req, res) => {
   res.render('forms/register', baseRegisterObject);
 };
 
+// Register a user
 const postRegistration = [
+  // validation Rules
   validateRegistration,
   async (req, res, next) => {
+    //check for validation errors
     const errors = validationResult(req);
+
     console.log(errors.array());
     if (!errors.isEmpty()) {
+      //render the page with error messages for the user
       return res.status(400).render('forms/register', {
         title: 'Sign-Up',
         links: links,
         errorData: errors.array(),
       });
     }
+    //extract user data from the post request
     const { fName, lName, email, pass } = matchedData(req);
+
     try {
+      //query to insert data into the database
       const response = await query.insertUser(fName, lName, email, pass);
       if (!response) {
         return res.status(500).render('forms/register', {
@@ -33,6 +41,7 @@ const postRegistration = [
           errors: [{ msg: 'Data-base failed to insert user, retry' }],
         });
       }
+      //redirect to root on successful registrations
       res.redirect('/');
     } catch (err) {
       console.log(origin);
@@ -41,4 +50,9 @@ const postRegistration = [
   },
 ];
 
-export { getRegistration, postRegistration };
+//render log in page
+const getLogIn = (req, res) => {
+  res.render('forms/log-in', { title: 'Log-In', links: links });
+};
+
+export { getRegistration, postRegistration, getLogIn };

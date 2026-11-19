@@ -6,5 +6,6 @@ const origin = `Error: file origins at ${(import.meta.dirname, import.meta.filen
 const authRouter = Router();
 
 authRouter.get('/register', authCont.getRegistration);
+authRouter.post('/register', authCont.postRegistration);
 
 export default authRouter;

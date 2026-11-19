@@ -1,7 +1,14 @@
-<% if(locals.linkData) { %>
-    <% linkData.forEach(link=>{ %>
-        <a href="<%= link.href %>">
-            <span><%= link.name %></span>
-        </a>
-    <% }) %>
-<% } %> 
+<header>
+        <p>Qutbudeen's ClubHouse</p>
+        <nav>
+            <% if(locals.linkData) { %>
+                <% linkData.forEach(link=>{ %>
+            <a href="<%= link.href %>">
+                <span><%= link.name %></span>
+            </a>
+                <% }) %>
+            <% } %>
+        </nav>
+    </header>
+
+

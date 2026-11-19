@@ -6,6 +6,7 @@ import sessionStore from './config/storeSession.js';
 
 //importing routers
 import indexRouter from './routers/indexRouter.js';
+import authRouter from './routers/authRouter.js';
 
 // lod env
 loadEnvFile(path.join(import.meta.dirname, 'data.env'));
@@ -37,6 +38,7 @@ app.use(
 
 //set up routers
 app.use('/', indexRouter);
+app.use('/', authRouter);
 
 app.listen(process.env.PORT || 8080, (err) => {
   if (err) {

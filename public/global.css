@@ -8,11 +8,41 @@
 }
 header {
   display: flex;
-  padding: 2.5rem;
+  padding: 2.5rem 0;
   justify-content: space-between;
   font-size: 1.6rem;
 }
 nav {
   display: flex;
   gap: 2rem;
+}
+body {
+  padding: 0 2.5rem;
+}
+.registrationWrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.registrationForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.6rem;
+  gap: 0.6rem;
+  width: 25vw;
+  background-color: rgb(107, 250, 183);
+  padding: 4rem 6rem;
+  border-radius: 1rem;
+}
+.rButtons {
+  display: flex;
+  gap: 1rem;
+  padding-top: 3rem;
+}
+.rButtons button {
+  flex: 1;
+  padding: 0.4rem;
 }

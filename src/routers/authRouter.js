@@ -15,4 +15,7 @@ authRouter.post('/log-in', authCont.postLogIn);
 
 //log-in response
 authRouter.get('/failed', authCont.failedLogin);
+
+//log-out user
+authRouter.get('/logout', authCont.logout);
 export default authRouter;

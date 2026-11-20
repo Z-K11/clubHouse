@@ -85,4 +85,17 @@ const failedLogin = (req, res) => {
   });
 };
 
-export { getRegistration, postRegistration, getLogIn, postLogIn, failedLogin };
+const logout = (req, res, next) => {
+  req.logout((err) => {
+    if (err) next(err);
+  });
+  res.redirect('/');
+};
+export {
+  getRegistration,
+  postRegistration,
+  getLogIn,
+  postLogIn,
+  failedLogin,
+  logout,
+};

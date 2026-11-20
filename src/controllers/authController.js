@@ -9,6 +9,7 @@ const baseRegisterObject = { title: 'Sign-Up', links: links };
 
 //Render sign up page
 const getRegistration = (req, res) => {
+  if (req.isAuthenticated()) return res.redirect('/');
   res.render('forms/register', baseRegisterObject);
 };
 
@@ -53,6 +54,7 @@ const postRegistration = [
 
 //render log in page
 const getLogIn = (req, res) => {
+  if (req.isAuthenticated()) return res.redirect('/');
   res.render('forms/log-in', { title: 'Log-In', links: links });
 };
 

@@ -9,8 +9,8 @@
 <body>
     <%-include('../partials/nav',{linkData:links}) %>
     <div class="registrationWrapper">
-        <form action="/login" method="post" class="registrationForm">
-            <% if(locals.error) { %>
+        <form action="/log-in" method="post" class="registrationForm">
+            <% if(locals.errors) { %>
                 <%-include('../partials/errors',{errors:errors}) %>
             <% } %>
             <label for="username">Email:</label>

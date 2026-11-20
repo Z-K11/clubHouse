@@ -33,4 +33,25 @@ const validateRegistration = [
     .withMessage('Passwords do not match'),
 ];
 
-export { validateRegistration };
+const validateLogin = [
+  body('username')
+    .trim()
+    .isEmail()
+    .withMessage(`Email should follow the syntax address@something.com`),
+  body('password')
+    .custom((value) => {
+      if (value.length < 8) return Promise.reject('Password is too short');
+      else return Promise.resolve();
+    })
+    .isStrongPassword({
+      minLowercase: 1,
+      minNumbers: 1,
+      minUppercase: 1,
+      minSymbols: 1,
+    })
+    .withMessage(
+      'Password must contain 1 lowercase and uppercase letter,1 symbol and 1 number'
+    ),
+];
+
+export { validateRegistration, validateLogin };

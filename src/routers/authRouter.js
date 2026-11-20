@@ -11,4 +11,8 @@ authRouter.post('/register', authCont.postRegistration);
 
 //user log-in request handlers
 authRouter.get('/log-in', authCont.getLogIn);
+authRouter.post('/log-in', authCont.postLogIn);
+
+//log-in response
+authRouter.get('/failed', authCont.failedLogin);
 export default authRouter;
